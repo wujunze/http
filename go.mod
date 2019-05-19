@@ -1,3 +1,3 @@
-module http-client
+module http
 
 go 1.12
