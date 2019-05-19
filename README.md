@@ -7,3 +7,44 @@
 
 A simple http client for golang
 
+
+## Usage
+
+### Start using it
+
+Download and install it:
+
+```bash
+$ go get github.com/wujunze/http
+```
+
+Import it in your code:
+
+```go
+import "github.com/wujunze/http"
+```
+
+### Example:
+
+```go
+package main
+
+import (
+	"github.com/wujunze/http"
+)
+
+func main() {
+ 
+	params := make(map[string]string)
+	params["name"] = "panda"
+	curl := Curl{"https://github.com"}
+
+	res, err := curl.Get("/", params)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(string(res))
+}
+```
