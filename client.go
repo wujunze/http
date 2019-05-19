@@ -34,7 +34,7 @@ func (c Curl) Get(uri string, params map[string]string) ([]byte, error) {
 	}
 	result, err := http.Get(requestURL)
 	if err != nil {
-		fmt.Print( "curl_get", "get:"+requestURL+" error,errMessage:"+err.Error(), "")
+		fmt.Print("curl_get", "get:"+requestURL+" error,errMessage:"+err.Error(), "")
 		return []byte{}, err
 	}
 	resultByte, err1 := ioutil.ReadAll(result.Body)
@@ -47,17 +47,17 @@ func (c Curl) Get(uri string, params map[string]string) ([]byte, error) {
 }
 
 // Post http的post请求
-func (c Curl) Post(uri string, params url.Values) (string,error) {
+func (c Curl) Post(uri string, params url.Values) (string, error) {
 	requestURL := c.Domain + "/" + uri
 	result, err := http.PostForm(requestURL, params)
 	if err != nil {
 		fmt.Print("curl_post", "post:"+requestURL+" error,errMessage:"+err.Error(), "")
-		return "",err
+		return "", err
 	}
 	defer result.Body.Close()
 	resultByte, err1 := ioutil.ReadAll(result.Body)
 	if err1 != nil {
-		return "",err1
+		return "", err1
 	}
-	return string(resultByte),nil
+	return string(resultByte), nil
 }

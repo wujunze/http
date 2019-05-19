@@ -26,7 +26,7 @@ func TestCurl_Post(t *testing.T) {
 
 	curl := Curl{"https://api.github.com"}
 
-	res,err := curl.Post("/users/octocat/orgs", c)
+	res, err := curl.Post("/users/octocat/orgs", c)
 
 	if err != nil {
 		t.Fatal(err)
