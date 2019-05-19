@@ -7,12 +7,12 @@ import (
 	"net/url"
 )
 
-// Curl http请求类
+// Curl  domain is  request domain
 type Curl struct {
 	Domain string
 }
 
-// Get http-get请求
+// Get request
 func (c Curl) Get(uri string, params map[string]string) ([]byte, error) {
 	var requestURL string
 	if uri == "" {
@@ -46,7 +46,7 @@ func (c Curl) Get(uri string, params map[string]string) ([]byte, error) {
 	return resultByte, nil
 }
 
-// Post http的post请求
+// Post request
 func (c Curl) Post(uri string, params url.Values) (string, error) {
 	requestURL := c.Domain + "/" + uri
 	result, err := http.PostForm(requestURL, params)
